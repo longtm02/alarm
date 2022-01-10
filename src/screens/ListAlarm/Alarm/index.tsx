@@ -1,13 +1,18 @@
 import React, { FC, useState } from "react";
-import { ScrollView, Text, Box, Switch } from "native-base";
+import { ScrollView, Text, Box, Switch, Button } from "native-base";
 import styles from "./style";
 import { AlarmReducerInterface } from "../../../store/reducer/alarm/interface";
+import { TouchableHighlight } from "react-native";
+import { useLinkTo, useNavigation } from "@react-navigation/native";
+import { ROUTERS } from "../../../constants/router";
 
 interface IAlarm {
   data: AlarmReducerInterface;
 }
 
 const Alarm: FC<IAlarm> = ({ data }) => {
+  const navigation = useNavigation();
+  const link = useLinkTo();
   const [statusOpen, setStatusOpen] = useState(data.statusOpen);
   const handleToggleAlarm = () => {
     setStatusOpen(!statusOpen);
@@ -18,8 +23,11 @@ const Alarm: FC<IAlarm> = ({ data }) => {
     }
     return time;
   };
+  const onPress = () => {
+    navigation.navigate(ROUTERS.SCREEN1.name as any);
+  };
   return (
-    <ScrollView>
+    <TouchableHighlight onPress={onPress}>
       <Box
         style={styles.container}
         justifyContent="space-between"
@@ -46,7 +54,7 @@ const Alarm: FC<IAlarm> = ({ data }) => {
           />
         </Box>
       </Box>
-    </ScrollView>
+    </TouchableHighlight>
   );
 };
 

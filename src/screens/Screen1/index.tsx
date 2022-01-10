@@ -1,16 +1,19 @@
-import React from "react";
-import { View, Text, StatusBar } from "react-native";
+import { Box } from "native-base";
+import React, { useState } from "react";
+import { View, Text, StatusBar, SafeAreaView, ScrollView } from "react-native";
 
-export default function App() {
+export default function Screen1() {
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(true);
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        height: 100,
-        padding: 20,
-      }}
-    >
-      <Text>Đây là screen 1</Text>
-    </View>
+    <SafeAreaView>
+      <StatusBar />
+      <ScrollView>
+        <Box>
+          <Text>list alarm screen 1</Text>
+        </Box>
+        <Box>{/* <DatePicker date={date} onDateChange={setDate} /> */}</Box>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

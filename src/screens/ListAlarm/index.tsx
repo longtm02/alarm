@@ -1,8 +1,9 @@
 import React from "react";
-import { ScrollView, Text, Box } from "native-base";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useSelector } from "react-redux";
+import { ScrollView, Text, Box, StatusBar } from "native-base";
 import styles from "./style";
 import Alarm from "./Alarm";
-import { useSelector } from "react-redux";
 import { AppState } from "../../store/reducer";
 import { AlarmReducerInterface } from "../../store/reducer/alarm/interface";
 
@@ -18,11 +19,14 @@ export default function ListAlarm() {
     return result;
   };
   return (
-    <ScrollView>
-      <Box style={styles.container}>
-        <Text style={styles.title}>list alarm</Text>
-        {renderAlarm()}
-      </Box>
-    </ScrollView>
+    <SafeAreaView>
+      <StatusBar />
+      <ScrollView>
+        <Box style={styles.container}>
+          <Text style={styles.title}>list alarm</Text>
+          {renderAlarm()}
+        </Box>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
