@@ -5,10 +5,7 @@ import rootReducer from "./reducer/index";
 import rootSaga from "./saga";
 
 const sagaMiddleware = createSagaMiddleware();
-export const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
-);
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 const configureStore = () => {
   sagaMiddleware.run(rootSaga);
   return store;

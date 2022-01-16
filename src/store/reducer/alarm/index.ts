@@ -1,8 +1,4 @@
-import {
-  initDataListAlarm,
-  ListAlarmReducerInterface,
-  AlarmReducerInterface,
-} from "./interface";
+import { initDataListAlarm, ListAlarmReducerInterface, AlarmReducerInterface } from "./interface";
 import * as types from "./../../actions/types";
 
 interface Action {

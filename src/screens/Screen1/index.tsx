@@ -10,7 +10,7 @@ export default function Screen1() {
         <Box>
           <Text>list alarm screen 1</Text>
         </Box>
-        <Box></Box>
+        <Box> </Box>
       </ScrollView>
     </SafeAreaView>
   );

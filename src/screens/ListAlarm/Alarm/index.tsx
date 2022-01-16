@@ -3,7 +3,7 @@ import { Text, Box, Switch } from "native-base";
 import styles from "./style";
 import { AlarmReducerInterface } from "../../../store/reducer/alarm/interface";
 import { TouchableHighlight } from "react-native";
-import { useLinkTo, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { ROUTERS } from "../../../constants/router";
 
 interface IAlarm {
@@ -12,7 +12,6 @@ interface IAlarm {
 
 const Alarm: FC<IAlarm> = ({ data }) => {
   const navigation = useNavigation();
-  const link = useLinkTo();
   const [statusOpen, setStatusOpen] = useState(data.statusOpen);
   const handleToggleAlarm = () => {
     setStatusOpen(!statusOpen);
@@ -47,11 +46,7 @@ const Alarm: FC<IAlarm> = ({ data }) => {
           </Box>
         </Box>
         <Box>
-          <Switch
-            isChecked={statusOpen}
-            size="lg"
-            onToggle={handleToggleAlarm}
-          />
+          <Switch isChecked={statusOpen} size="lg" onToggle={handleToggleAlarm} />
         </Box>
       </Box>
     </TouchableHighlight>
