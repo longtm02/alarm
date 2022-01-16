@@ -15,7 +15,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -24,6 +26,16 @@
     "@react-navigation/native-stack": "^6.2.5",
     "@types/react-redux": "^7.1.21",
     "@types/redux-saga": "^0.10.5",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-native": "^4.0.0",
     "expo": "~42.0.0",
     "expo-status-bar": "~1.0.4",
     "native-base": "3.2.1",
@@ -47,7 +59,23 @@
     "@babel/core": "^7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
-    "typescript": "~4.0.0"
+    "@typescript-eslint/parser": "^5.9.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7",
+    "typescript": "^4.5.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "npm run lint"
+    ],
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "npm run format"
+    ]
   },
   "author": "long",
   "private": true
