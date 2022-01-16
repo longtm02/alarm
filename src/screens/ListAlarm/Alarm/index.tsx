@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { ScrollView, Text, Box, Switch, Button } from "native-base";
+import { Text, Box, Switch } from "native-base";
 import styles from "./style";
 import { AlarmReducerInterface } from "../../../store/reducer/alarm/interface";
 import { TouchableHighlight } from "react-native";

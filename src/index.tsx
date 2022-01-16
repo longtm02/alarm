@@ -6,9 +6,10 @@ import App from "./App";
 import { themeConfig } from "./constants/themeConfig";
 import configureStore from "./store";
 
-// extend the theme
+/*------------------ extend the theme -------------------- */
 export const theme = extendTheme({ themeConfig });
-//config store
+
+/*------------------ config store redux -------------------- */
 const store = configureStore();
 
 const Container = () => {
